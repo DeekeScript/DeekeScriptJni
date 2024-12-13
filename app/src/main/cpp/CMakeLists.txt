@@ -37,12 +37,16 @@ set_target_properties(v8_monolith PROPERTIES IMPORTED_LOCATION ${V8_LIBS_PATH}/l
 
 include_directories(${PARENT_DIR}/cpp/include) # 头文件引入，否则编写代码会出错
 
-add_library(${CMAKE_PROJECT_NAME} SHARED
-        # List C/C++ source files with relative paths to this CMakeLists.txt.
-        native-lib.cpp
-        test.lib.cpp
-        v8_exec.cpp
-)
+#add_library(${CMAKE_PROJECT_NAME} SHARED
+#        # List C/C++ source files with relative paths to this CMakeLists.txt.
+#        native-lib.cpp
+#        test.lib.cpp
+#        v8_exec.cpp
+#)
+
+file(GLOB CPP_SOURCES "**/*.cpp")
+add_library(${CMAKE_PROJECT_NAME} SHARED ${CPP_SOURCES})
+
 
 # 链接到目标
 # Specifies libraries CMake should link to your target library. You

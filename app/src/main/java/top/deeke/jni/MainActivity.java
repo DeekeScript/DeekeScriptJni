@@ -26,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = binding.sampleText;
-        tv.setText(stringFromJNI());
-        Log.d("debug", "返回值：" + exec());
-        Log.d("debug", "execScript：" + execScript("let a = 12;let b = 13;a+b;", "jiang"));
+        //tv.setText(stringFromJNI());
+        // Log.d("debug", "返回值：" + exec());
+        // Log.d("debug", "execScript：" + execScript("let a = 12;let b = 13;a+b;", "jiang"));
+        Log.d("debug", execScriptConsole("path", "console.log(222222);"));
     }
 
     /**
@@ -40,4 +41,6 @@ public class MainActivity extends AppCompatActivity {
     public native String exec();
 
     public native String execScript(String code, String path);
+
+    public native String execScriptConsole(String path, String code);
 }
